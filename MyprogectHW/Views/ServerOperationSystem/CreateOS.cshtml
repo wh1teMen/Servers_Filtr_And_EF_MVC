@@ -1,0 +1,9 @@
+﻿@model ServerOperationSystem
+<h2>Добавление операционной системы</h2>
+<form asp-action="CreateOS" asp-controller="ServerOperationSystem">
+    <p>
+        <label asp-for="TitleOS">Название:</label>
+        <input type="text" asp-for="TitleOS" />
+    </p>
+    <button class="btn btn-success">Добавить</button>
+</form>

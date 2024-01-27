@@ -1,0 +1,47 @@
+﻿@model Server
+@{
+    ApplicationContext db_ = MyprogectHW.Controllers.ServerController.db;
+    var ListComponents = db_.Components.ToList();
+    var ListOperationSystems = db_.Operations.ToList();
+
+}
+<div  style="display:flex;justify-content:center;flex-direction:column">
+        <h1>Добавление сервера </h1>
+    </div>
+<div style="display:flex;justify-content:center;flex-direction:column">
+   
+    <form asp-action="CreateServer" asp-controller="Server">
+        <div style="display:flex;flex-flow:column">
+            <div style="margin:8px">
+                <label asp-for="TitleCompany">Название компании:</label>
+                <input type="text" asp-for="TitleCompany" />
+            </div>
+            <div style="margin:8px">
+            <select asp-for="ComponentsId" >
+                @foreach (var component in ListComponents)
+                {
+                     <option value="@component.Id">@component.TitleModel</option>
+                }              
+            </select>
+            </div>
+            <select asp-for="OperationSystemId" style="width:200px">
+                @foreach (var os in ListOperationSystems)
+                {
+                    <option value="@os.Id">@os.TitleOS</option>
+                }
+            </select>
+        </div>            
+            <div style="margin:8px">
+                <label asp-for="Expiration_date">Срок службы:</label>
+                <input type="number" asp-for="Expiration_date" />
+            </div>
+            <div style="margin:8px">
+                <button class="btn btn-success">Добавить</button>
+            </div>
+      
+    </form>
+
+</div>
+
+
+ 

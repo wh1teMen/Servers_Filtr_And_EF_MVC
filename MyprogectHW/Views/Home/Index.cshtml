@@ -1,0 +1,92 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+ @model CollectionElement
+
+@{   
+    var ListServ = Model.servers;  
+
+}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+<div class="text-center">
+    <h1 class="display-4">Сервера</h1>   
+</div>
+<div style="display:flex;justify-content:center;">
+    <form asp-controller="home" asp-action="index" method="post">
+        <input type="text" name="title" placeholder="название компании" />
+        <input type="submit" value="найти" />
+    </form>
+
+
+</div>
+<div>  
+            <div style="display:flex;justify-content:center">
+                <div style="width:800px">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                
+                                <th scope="col">Компания</th>
+                                <th scope="col">Модель</th>
+                                <th scope="col">ОС</th>
+                                <th scope="col">Срок</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in ListServ)
+                            {
+                                <tr>
+                                   
+                                    <td class="table-light">@item.TitleCompany</td>
+                            @{
+                                var ListCompo = Model.components;
+                                var ElementComponent = ListCompo.FirstOrDefault(el => el.Id == item.ComponentsId);
+                                    }
+                                    @if (ElementComponent != null)
+                                    {
+                                        <td class="table-light">@ElementComponent.TitleModel</td>
+                                    }
+                                    else
+                                    {
+                                        <td class="table-light">null</td>
+                                    }
+
+                            @{
+                                var ListOS = Model.operations;
+                                var ElementOperationSystem = ListOS.FirstOrDefault(el => el.Id == item.OperationSystemId);
+                                    }
+                                    @if (ElementOperationSystem != null)
+                                    {
+                                        <td class="table-light">@ElementOperationSystem.TitleOS</td>
+                                    }
+                                    else
+                                    {
+                                        <td class="table-light">null</td>
+                                    }
+
+                                    <td class="table-light">@item.Expiration_date</td>
+                                    <td class="table-light">
+                                        <a asp-action="Edit" asp-controller="Server" asp-route-id="@item.Id">Изменить</a>
+                                    </td>
+                                    <td class="table-light">
+                                        <a asp-action="Delete" asp-controller="Server" asp-route-id="@item.Id" class="link-danger">Удалить</a>
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+
+                    </table>
+
+
+                </div>
+
+            </div>
+            
+        
+    
+</div>
+
+

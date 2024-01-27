@@ -1,0 +1,32 @@
+﻿@model ServerComponents
+ <div  style="display:flex;justify-content:center;flex-direction:column">
+        <h1>Добавление компонента сервера </h1>
+    </div>
+<div style="display:flex;justify-content:center;flex-direction:column">
+   
+    <form asp-action="CreateComponent" asp-controller="Component">
+        <div style="display:flex;flex-flow:column">
+            <div style="margin:8px">
+                <label asp-for="TitleModel">Название модели:</label>
+                <input type="text" asp-for="TitleModel" />
+            </div style="margin:8px">
+            <div style="margin:8px">
+                <label asp-for="CountSlot">Количество слотов памяти:</label>
+                <input type="number" asp-for="CountSlot" />
+            </div>
+            <div style="margin:8px">
+                <label asp-for="NumberOfcores">Количество ядер:</label>
+                <input type="number" asp-for="NumberOfcores" />
+            </div>
+            <div style="margin:8px">
+                <label asp-for="MemoryType">Тип памяти:</label>
+                <input type="text" asp-for="MemoryType" />
+            </div>
+            <div style="margin:8px">
+                <button class="btn btn-success">Добавить</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+
