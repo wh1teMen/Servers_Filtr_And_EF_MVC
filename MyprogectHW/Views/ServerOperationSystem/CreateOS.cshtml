@@ -1,9 +1,18 @@
 ﻿@model ServerOperationSystem
-<h2>Добавление операционной системы</h2>
-<form asp-action="CreateOS" asp-controller="ServerOperationSystem">
-    <p>
-        <label asp-for="TitleOS">Название:</label>
-        <input type="text" asp-for="TitleOS" />
-    </p>
-    <button class="btn btn-success">Добавить</button>
-</form>
+
+<div style="display:flex;justify-content:center;">
+    <div style="width:300px; border:1px solid black;border-radius:10px;text-align:center;-webkit-box-shadow: 27px -13px 19px 0px rgba(2, 32, 54, 0.39);
+                -moz-box-shadow: 27px -13px 19px 0px rgba(2, 32, 54, 0.39);
+                box-shadow: 27px -13px 19px 0px rgba(2, 32, 54, 0.39);">
+        <form asp-action="CreateOS" asp-controller="ServerOperationSystem">
+            <h2>Добавление операционной<br /> системы</h2>
+            <p>                
+                <input type="text" asp-for="TitleOS" placeholder="Название ОС"/>
+            </p>
+            <button style="margin-bottom:10px;width:65%;" class="btn btn-success">Добавить</button>
+        </form>
+
+    </div>
+
+
+</div>

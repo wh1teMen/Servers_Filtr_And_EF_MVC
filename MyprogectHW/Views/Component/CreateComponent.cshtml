@@ -1,32 +1,32 @@
 ﻿@model ServerComponents
  <div  style="display:flex;justify-content:center;flex-direction:column">
-        <h1>Добавление компонента сервера </h1>
-    </div>
-<div style="display:flex;justify-content:center;flex-direction:column">
+       
    
+<div style="display:flex;justify-content:center;">
+    <div style="display:flex;flex-flow:column;width:300px; border:1px solid black;border-radius:10px;text-align:center;-webkit-box-shadow: 27px -13px 19px 0px rgba(2, 32, 54, 0.39);
+                -moz-box-shadow: 27px -13px 19px 0px rgba(2, 32, 54, 0.39);
+                box-shadow: 27px -13px 19px 0px rgba(2, 32, 54, 0.39);">
     <form asp-action="CreateComponent" asp-controller="Component">
-        <div style="display:flex;flex-flow:column">
-            <div style="margin:8px">
-                <label asp-for="TitleModel">Название модели:</label>
-                <input type="text" asp-for="TitleModel" />
+         <h3>Добавление компонента </h3>
+       
+            <div style="margin:8px">               
+                <input type="text" asp-for="TitleModel" placeholder="Название модели" />
             </div style="margin:8px">
-            <div style="margin:8px">
-                <label asp-for="CountSlot">Количество слотов памяти:</label>
-                <input type="number" asp-for="CountSlot" />
+            <div style="margin:8px">               
+                <input type="number" asp-for="CountSlot" placeholder="Кол-во слотов" />
+            </div>
+            <div style="margin:8px">               
+                <input type="number" asp-for="NumberOfcores" placeholder="Количество ядер" />
+            </div>
+            <div style="margin:8px">              
+                <input type="text" asp-for="MemoryType" placeholder="Тип памяти"/>
             </div>
             <div style="margin:8px">
-                <label asp-for="NumberOfcores">Количество ядер:</label>
-                <input type="number" asp-for="NumberOfcores" />
+                <button style="margin-bottom:10px;width:70%;" class="btn btn-success">Добавить</button>
             </div>
-            <div style="margin:8px">
-                <label asp-for="MemoryType">Тип памяти:</label>
-                <input type="text" asp-for="MemoryType" />
-            </div>
-            <div style="margin:8px">
-                <button class="btn btn-success">Добавить</button>
-            </div>
-        </div>
+       
     </form>
-
+     </div>
 </div>
 
+ </div>

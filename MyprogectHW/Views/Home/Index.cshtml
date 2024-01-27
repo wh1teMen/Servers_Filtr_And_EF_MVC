@@ -13,14 +13,58 @@
     <h1 class="display-4">Сервера</h1>   
 </div>
 <div style="display:flex;justify-content:center;">
-    <form asp-controller="home" asp-action="index" method="post">
-        <input type="text" name="title" placeholder="название компании" />
-        <input type="submit" value="найти" />
-    </form>
+
+    <div style="display:flex;justify-content:space-between;width:800px;margin-top:20px;">
+
+
+        <div style="border:1px solid black;border-radius:10px;text-align:center;-webkit-box-shadow: 27px -13px 19px 0px rgba(2, 32, 54, 0.39);
+                -moz-box-shadow: 27px -13px 19px 0px rgba(2, 32, 54, 0.39);
+                box-shadow: 27px -13px 19px 0px rgba(2, 32, 54, 0.39);">
+               
+            <form asp-controller="home" asp-action="index" method="post" class="form-control-sm">
+                <h3>Поиск</h3>
+            <input type="text" name="title" placeholder="название компании" style="margin-top:10px" />
+                <div><button style="width:100%;margin-top:15px" class="btn btn-light" type="submit">Найти</button></div>
+        </form>
+    </div>
+
+        <div style="border:1px solid black;border-radius:10px;text-align:center;-webkit-box-shadow: 27px -13px 19px 0px rgba(2, 32, 54, 0.39);
+                        -moz-box-shadow: 27px -13px 19px 0px rgba(2, 32, 54, 0.39);
+                            box-shadow: 27px -13px 19px 0px rgba(2, 32, 54, 0.39);">
+
+
+        <form asp-controller="home" asp-action="index" method="post" class="form-control-sm">
+          <h3>Сортировка</h3>
+                    <select name="change" class="form-select form-select-sm">
+                        <option value="" disabled selected>Выберите поле для сортировки</option>
+                        <option value="comp">Компания</option>
+                        <option value="model">Модель</option>
+                        <option value="osy">ОС</option>
+                        <option value="term">Срок</option>
+                    </select>
+
+          
+               
+           
+                    <select name="sort" class="form-select form-select-sm" style="margin-top:10px">
+                        <option value="" disabled selected>Выберите сортировку</option>
+                        <option value="asc">по возрастанию</option>
+                        <option value="desc">по убыванию</option>
+                    </select>
+
+                <div><button style="width:100%;margin-top:15px" class="btn btn-light" type="submit">Отсортировать</button></div>
+
+
+
+                @* <input type="submit" value="отсортировать" /> *@
+        </form>
+
+    </div>
+    </div>
 
 
 </div>
-<div>  
+<div style="margin-top:40px">  
             <div style="display:flex;justify-content:center">
                 <div style="width:800px">
                     <table class="table">

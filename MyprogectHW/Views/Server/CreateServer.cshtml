@@ -5,26 +5,30 @@
     var ListOperationSystems = db_.Operations.ToList();
 
 }
-<div  style="display:flex;justify-content:center;flex-direction:column">
-        <h1>Добавление сервера </h1>
-    </div>
-<div style="display:flex;justify-content:center;flex-direction:column">
+<div  style="display:flex;justify-content:center;">
+   
+<div style="display:flex;justify-content:center;flex-direction:column;  width:300px; border:1px solid black;border-radius:10px;text-align:center;-webkit-box-shadow: 27px -13px 19px 0px rgba(2, 32, 54, 0.39);
+     -moz-box-shadow: 27px -13px 19px 0px rgba(2, 32, 54, 0.39);
+     box-shadow: 27px -13px 19px 0px rgba(2, 32, 54, 0.39);">
    
     <form asp-action="CreateServer" asp-controller="Server">
-        <div style="display:flex;flex-flow:column">
-            <div style="margin:8px">
-                <label asp-for="TitleCompany">Название компании:</label>
-                <input type="text" asp-for="TitleCompany" />
+        <h1>Добавление сервера </h1>
+        <div style="display:flex;flex-direction:column;justify-content:center">
+            <div style="margin:8px">                
+                <input type="text" asp-for="TitleCompany" placeholder="Название компании" />
             </div>
             <div style="margin:8px">
-            <select asp-for="ComponentsId" >
+                    <select asp-for="ComponentsId" class="form-select form-select-sm" style="width:190px;margin-left:48px">
+                        <option value="" disabled selected>Выберите модель</option>
                 @foreach (var component in ListComponents)
                 {
                      <option value="@component.Id">@component.TitleModel</option>
                 }              
             </select>
             </div>
-            <select asp-for="OperationSystemId" style="width:200px">
+                <div style="margin:8px">
+                <select asp-for="OperationSystemId" style="width:190px;margin-left:48px" class="form-select form-select-sm">
+                        <option value="" disabled selected>Выберите ОС</option>
                 @foreach (var os in ListOperationSystems)
                 {
                     <option value="@os.Id">@os.TitleOS</option>
@@ -32,16 +36,17 @@
             </select>
         </div>            
             <div style="margin:8px">
-                <label asp-for="Expiration_date">Срок службы:</label>
-                <input type="number" asp-for="Expiration_date" />
+               
+                <input type="number" asp-for="Expiration_date" placeholder="Срок службы" />
             </div>
             <div style="margin:8px">
-                <button class="btn btn-success">Добавить</button>
+                    <button class="btn btn-success" style="width:70%;margin-top:15px">Добавить</button>
             </div>
-      
+            </div>
     </form>
 
 </div>
 
 
- 
+
+</div>
